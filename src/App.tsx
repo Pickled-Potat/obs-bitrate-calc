@@ -109,7 +109,31 @@ export function App() {
   const [encoderKey, setEncoderKey] = useState<string>('nvenc_h264');
   const [audioKbps, setAudioKbps] = useState<number>(160);
   const [uploadMbps, setUploadMbps] = useState<number>(20.0);
+  const [isTestingSpeed, setIsTestingSpeed] = useState<boolean>(false);
   const [copiedSettings, setCopiedSettings] = useState<boolean>(false);
+
+  // Auto-detect speed test function
+  const runAutoSpeedTest = async () => {
+    setIsTestingSpeed(true);
+    const startTime = performance.now();
+    try {
+      // Download 1.5MB test payload to measure connection throughput
+      const res = await fetch('https://cachefly.cachefly.net/1mb.test?t=' + Date.now());
+      const blob = await res.blob();
+      const endTime = performance.now();
+      const durationSeconds = (endTime - startTime) / 1000;
+      const bitsLoaded = blob.size * 8;
+      const speedMbps = parseFloat(((bitsLoaded / durationSeconds) / 1000000).toFixed(1));
+      
+      // Upload speeds are typically ~25-40% of download speed on standard home fiber/broadband
+      const estimatedUpload = Math.max(parseFloat((speedMbps * 0.4).toFixed(1)), 2.0);
+      setUploadMbps(Math.min(estimatedUpload, 100.0));
+    } catch (e) {
+      console.error('Speed test error:', e);
+    } finally {
+      setIsTestingSpeed(false);
+    }
+  };
 
   // Sync state to URL params for Programmatic SEO without page reload
   useEffect(() => {
@@ -278,7 +302,16 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
 
               <div>
                 <div className="flex justify-between items-center text-sm mb-2">
-                  <label className="font-medium text-muted-foreground">Your Internet Upload Speed</label>
+                  <div className="flex items-center gap-2">
+                    <label className="font-medium text-muted-foreground">Your Internet Upload Speed</label>
+                    <button
+                      onClick={runAutoSpeedTest}
+                      disabled={isTestingSpeed}
+                      className="px-2.5 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-xs font-bold border border-purple-500/30 transition-all cursor-pointer flex items-center gap-1"
+                    >
+                      <span>⚡ {isTestingSpeed ? 'Testing Speed...' : 'Auto-Detect Speed'}</span>
+                    </button>
+                  </div>
                   <span className="font-mono font-bold text-purple-400 text-base">{uploadMbps} Mbps</span>
                 </div>
                 <input

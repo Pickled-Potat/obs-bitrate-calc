@@ -95,43 +95,83 @@ export const RESOLUTION_PRESETS: Record<string, ResolutionPreset> = {
 export const ENCODER_PRESETS: Record<string, EncoderPreset> = {
   nvenc_h264: {
     name: 'NVIDIA NVENC H.264 (RTX / GTX)',
-    type: 'GPU Hardware',
+    type: 'NVIDIA GPU Hardware',
     efficiencyMultiplier: 1.0,
     recommendedPreset: 'P6: Slower (Better Quality)',
     recommendedTuning: 'High Quality',
     bFrames: 2
   },
+  nvenc_hevc: {
+    name: 'NVIDIA NVENC HEVC / H.265 (RTX)',
+    type: 'NVIDIA GPU Hardware',
+    efficiencyMultiplier: 0.85,
+    recommendedPreset: 'P6: Slower (Better Quality)',
+    recommendedTuning: 'High Quality',
+    bFrames: 2
+  },
   nvenc_av1: {
-    name: 'NVIDIA NVENC AV1 (RTX 40 Series)',
-    type: 'GPU Hardware (Next-Gen)',
+    name: 'NVIDIA NVENC AV1 (RTX 40 / 50 Series)',
+    type: 'NVIDIA GPU Hardware (Next-Gen)',
     efficiencyMultiplier: 0.72,
     recommendedPreset: 'P6: Slower (Better Quality)',
     recommendedTuning: 'High Quality',
     bFrames: 4
   },
-  amd_amf: {
-    name: 'AMD AMF H.264 / AV1 (Radeon RX)',
-    type: 'GPU Hardware',
+  amd_amf_h264: {
+    name: 'AMD AMF H.264 (Radeon RX)',
+    type: 'AMD GPU Hardware',
     efficiencyMultiplier: 1.05,
     recommendedPreset: 'Quality / High Quality',
     recommendedTuning: 'Two Pass (Quarter Resolution)',
     bFrames: 2
   },
-  quicksync: {
-    name: 'Intel QuickSync Video (Arc / Core GPU)',
-    type: 'GPU Hardware',
-    efficiencyMultiplier: 0.95,
+  amd_amf_av1: {
+    name: 'AMD AMF AV1 (Radeon RX 7000 Series)',
+    type: 'AMD GPU Hardware (Next-Gen)',
+    efficiencyMultiplier: 0.75,
+    recommendedPreset: 'Quality',
+    recommendedTuning: 'High Quality',
+    bFrames: 4
+  },
+  quicksync_h264: {
+    name: 'Intel QuickSync H.264 (Core iGPU / Arc)',
+    type: 'Intel GPU Hardware',
+    efficiencyMultiplier: 0.98,
     recommendedPreset: 'Quality',
     recommendedTuning: 'High Quality',
     bFrames: 2
   },
+  quicksync_av1: {
+    name: 'Intel QuickSync AV1 (Intel Arc GPU)',
+    type: 'Intel GPU Hardware (Next-Gen)',
+    efficiencyMultiplier: 0.74,
+    recommendedPreset: 'Quality',
+    recommendedTuning: 'High Quality',
+    bFrames: 4
+  },
+  apple_videotoolbox: {
+    name: 'Apple VideoToolbox H.264 / HEVC (Mac Apple Silicon)',
+    type: 'Apple M1/M2/M3/M4 Hardware',
+    efficiencyMultiplier: 0.95,
+    recommendedPreset: 'Quality (Max B-Frames)',
+    recommendedTuning: 'Low Latency',
+    bFrames: 2
+  },
   x264_medium: {
-    name: 'x264 CPU Encoder (Medium / Fast)',
+    name: 'x264 CPU Software Encoder (Medium / Fast)',
     type: 'CPU Software',
     efficiencyMultiplier: 0.92,
     recommendedPreset: 'medium (CPU Intensive) / fast',
     recommendedTuning: 'None / Film',
     bFrames: 2
+  },
+  svt_av1: {
+    name: 'SVT-AV1 / AOM-AV1 CPU Encoder',
+    type: 'CPU Software (Next-Gen)',
+    efficiencyMultiplier: 0.70,
+    recommendedPreset: 'Preset 6 or 7',
+    recommendedTuning: 'Visual Quality',
+    bFrames: 4
   }
 };
 
