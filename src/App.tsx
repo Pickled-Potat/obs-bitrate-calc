@@ -497,7 +497,7 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
               <span className="group-hover:text-purple-400">Video File Size & Storage Tool</span>
               <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">LIVE</span>
             </a>
-            <a href="https://aspect-ratio-calc.pages.dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border hover:border-purple-500/50 transition-all flex items-center justify-between text-xs font-semibold group">
+            <a href="https://aspect-ratio-calc-6f5.pages.dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border hover:border-purple-500/50 transition-all flex items-center justify-between text-xs font-semibold group">
               <span className="group-hover:text-purple-400">Aspect Ratio Converter</span>
               <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">LIVE</span>
             </a>
