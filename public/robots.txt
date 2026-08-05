@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://obs-bitrate-calc.pages.dev/sitemap.xml
