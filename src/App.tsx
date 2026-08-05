@@ -293,11 +293,11 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
               </select>
             </div>
 
-            {/* Step 4: Upload Speed & Audio */}
+            {/* Step 4: Upload Speed & Safety Buffer */}
             <div className="border border-border bg-card rounded-2xl p-6 shadow-xs space-y-4">
               <div className="flex items-center gap-2 text-sm font-semibold text-foreground uppercase tracking-wider mb-1">
                 <Wifi className="w-4 h-4 text-purple-500" />
-                <span>04 // Internet Upload Speed & Audio</span>
+                <span>04 // Upload Speed & Safety Buffer</span>
               </div>
 
               <div>
@@ -323,6 +323,17 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
                   onChange={(e) => setUploadMbps(parseFloat(e.target.value))}
                   className="w-full accent-purple-500 cursor-pointer h-2 bg-secondary rounded-lg"
                 />
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center text-xs mb-1 font-mono">
+                  <span className="text-muted-foreground">Bandwidth Allocated for Stream:</span>
+                  <span className="text-emerald-400 font-bold">75% (25% reserved for gaming ping)</span>
+                </div>
+                <div className="w-full h-2 bg-secondary rounded-full overflow-hidden flex">
+                  <div className="h-full bg-purple-500" style={{ width: '75%' }}></div>
+                  <div className="h-full bg-emerald-500/30" style={{ width: '25%' }}></div>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
@@ -470,8 +481,47 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
           </div>
         </div>
 
+        {/* More Free Creator & Engineering Tools Network */}
+        <div className="mt-16 pt-8 border-t border-border no-print">
+          <h3 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wider">More Free Creator & Engineering Tools</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <a href="https://3d-print-calc.pages.dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border hover:border-purple-500/50 transition-all flex items-center justify-between text-xs font-semibold group">
+              <span className="group-hover:text-purple-400">3D Printing Cost Calculator</span>
+              <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">LIVE</span>
+            </a>
+            <a href="https://obs-bitrate-calc.pages.dev" className="p-3 rounded-xl bg-card border border-purple-500/40 text-purple-400 transition-all flex items-center justify-between text-xs font-semibold">
+              <span>OBS Bitrate & Encoder Tool</span>
+              <span className="text-[10px] text-purple-400 font-bold bg-purple-500/10 px-2 py-0.5 rounded">ACTIVE</span>
+            </a>
+            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
+              <span>Video File Size Calculator</span>
+              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
+            </div>
+            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
+              <span>Aspect Ratio & Resolution Tool</span>
+              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
+            </div>
+            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
+              <span>Audio Gear & Mic Estimator</span>
+              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
+            </div>
+            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
+              <span>NDI Bandwidth Calculator</span>
+              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
+            </div>
+            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
+              <span>CNC & Laser Cutting Cost Tool</span>
+              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
+            </div>
+            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
+              <span>SDI & HDMI Cable Length Tool</span>
+              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
+            </div>
+          </div>
+        </div>
+
         {/* 3-Column Cheeky Bottom Ad Section */}
-        <div className="mt-16 pt-8 border-t border-border text-center no-print">
+        <div className="mt-12 pt-6 text-center no-print">
           <span className="text-[11px] font-semibold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-4">
             please look at these for 1 sec so I can keep this site 100% free 🙏
           </span>
