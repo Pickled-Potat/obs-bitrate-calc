@@ -2,6 +2,16 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YLBY3TLYJ8"></script>
+    <script>
+      if (window.location.hostname !== 'localhost' && localStorage.getItem('dev_admin_mode') !== 'true') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YLBY3TLYJ8');
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OBS Bitrate Calculator 2026 - Best Stream Settings for Twitch & YouTube</title>
