@@ -471,7 +471,7 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
         </div>
 
         {/* 3-Column Cheeky Bottom Ad Section */}
-        <div className="mt-16 pt-8 border-t border-border text-center">
+        <div className="mt-16 pt-8 border-t border-border text-center no-print">
           <span className="text-[11px] font-semibold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-4">
             please look at these for 1 sec so I can keep this site 100% free 🙏
           </span>
@@ -482,6 +482,51 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
           </div>
         </div>
       </main>
+
+      {/* Dedicated Printable OBS Settings Cheat Sheet (Visible only during Print / PDF Export) */}
+      <div className="hidden print:block p-8 font-sans text-black bg-white">
+        <div className="border-b-2 border-black pb-4 mb-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold uppercase tracking-tight">OBS Studio Broadcast Cheat Sheet</h1>
+            <p className="text-xs text-gray-600">Generated via StreamBit Studio &bull; Broadcast Configuration Spec Sheet</p>
+          </div>
+          <div className="text-right font-mono text-xs">
+            <div>Date: {new Date().toLocaleDateString()}</div>
+            <div>Platform: {selectedPlatform.name}</div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 mb-6 text-xs font-mono">
+          <div className="space-y-2 border border-gray-300 p-4 rounded-xl">
+            <h3 className="font-bold text-xs uppercase text-gray-500 mb-2 font-sans border-b pb-1">Video & Output Encoding</h3>
+            <div><span className="text-gray-600">Target Resolution:</span> <strong>{RESOLUTION_PRESETS[resolutionKey]?.name}</strong></div>
+            <div><span className="text-gray-600">Encoder Hardware:</span> <strong>{ENCODER_PRESETS[encoderKey]?.name}</strong></div>
+            <div><span className="text-gray-600">Recommended Bitrate:</span> <strong className="text-sm text-purple-700">{result.recommendedBitrateKbps} Kbps CBR</strong></div>
+            <div><span className="text-gray-600">Max Peak Bitrate:</span> <strong>{result.maxBitrateKbps} Kbps</strong></div>
+          </div>
+
+          <div className="space-y-2 border border-gray-300 p-4 rounded-xl">
+            <h3 className="font-bold text-xs uppercase text-gray-500 mb-2 font-sans border-b pb-1">OBS Advanced Controls</h3>
+            <div><span className="text-gray-600">Rate Control:</span> <strong>{result.obsSettings.rateControl}</strong></div>
+            <div><span className="text-gray-600">Keyframe Interval:</span> <strong>{result.obsSettings.keyframeInterval}</strong></div>
+            <div><span className="text-gray-600">Encoder Preset:</span> <strong>{result.obsSettings.encoderPreset}</strong></div>
+            <div><span className="text-gray-600">Max B-Frames:</span> <strong>{result.obsSettings.bFrames}</strong></div>
+            <div><span className="text-gray-600">Audio Quality:</span> <strong>{result.audioBitrateKbps} Kbps</strong></div>
+          </div>
+        </div>
+
+        <div className="border border-gray-300 p-4 rounded-xl text-xs mb-6 font-mono">
+          <span className="font-bold block mb-1">Network Headroom & Stability Check:</span>
+          <p className="text-gray-700">{result.stabilityMessage}</p>
+          <div className="mt-2 text-[11px] text-gray-500">
+            Upload Speed: {uploadMbps} Mbps | Required Headroom: {result.requiredUploadMbps} Mbps
+          </div>
+        </div>
+
+        <div className="text-[10px] text-gray-400 text-center border-t pt-4 font-mono">
+          StreamBit Studio &bull; Free Broadcast Engineering &bull; https://obs-bitrate-calc.pages.dev
+        </div>
+      </div>
     </div>
   );
 }
