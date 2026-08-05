@@ -25,6 +25,22 @@ import {
 function AdsterraBanner() {
   const [adBlocked, setAdBlocked] = useState(false);
 
+  // Check if developer mode is enabled via URL param ?dev=true or localStorage flag
+  const isDevMode = typeof window !== 'undefined' && (
+    window.location.hostname === 'localhost' ||
+    window.location.search.includes('dev=true') ||
+    localStorage.getItem('dev_admin_mode') === 'true'
+  );
+
+  if (isDevMode) {
+    return (
+      <div className="my-2 border border-purple-500/30 bg-purple-500/5 rounded-xl p-3 shadow-xs flex flex-col items-center justify-center w-[300px] h-[250px] text-center">
+        <span className="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider mb-1">🛠️ DEV ADMIN MODE</span>
+        <span className="text-[11px] text-muted-foreground">Adsterra Script Disabled to Protect Your CPM Account Stats.</span>
+      </div>
+    );
+  }
+
   const iframeContent = `
     <!DOCTYPE html>
     <html>
