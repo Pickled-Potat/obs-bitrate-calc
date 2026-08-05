@@ -493,14 +493,14 @@ Required Upload Headroom: ${result.requiredUploadMbps} Mbps (Your Upload: ${uplo
               <span>OBS Bitrate & Encoder Tool</span>
               <span className="text-[10px] text-purple-400 font-bold bg-purple-500/10 px-2 py-0.5 rounded">ACTIVE</span>
             </a>
-            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
-              <span>Video File Size Calculator</span>
-              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
-            </div>
-            <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
-              <span>Aspect Ratio & Resolution Tool</span>
-              <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
-            </div>
+            <a href="https://video-filesize-calc.pages.dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border hover:border-purple-500/50 transition-all flex items-center justify-between text-xs font-semibold group">
+              <span className="group-hover:text-purple-400">Video File Size & Storage Tool</span>
+              <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">LIVE</span>
+            </a>
+            <a href="https://aspect-ratio-calc.pages.dev" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-card border border-border hover:border-purple-500/50 transition-all flex items-center justify-between text-xs font-semibold group">
+              <span className="group-hover:text-purple-400">Aspect Ratio Converter</span>
+              <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">LIVE</span>
+            </a>
             <div className="p-3 rounded-xl bg-card/40 border border-border/50 text-muted-foreground flex items-center justify-between text-xs font-medium opacity-60">
               <span>Audio Gear & Mic Estimator</span>
               <span className="text-[10px] text-zinc-500 font-mono">SOON</span>
